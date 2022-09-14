@@ -17,6 +17,7 @@ fetch("./texts.json")
   .then((data) => {
     questionText = data[Math.floor(Math.random() * data.length)];
     question.innerHTML = questionText;
+    console.log(question);
   });
 
 // checks the user typed character and displays accordingly
@@ -26,7 +27,11 @@ const typeController = (e) => {
   // Handle backspace press
   if (newLetter == "Backspace") {
     userText = userText.slice(0, userText.length - 1);
+    
+    ++errorCount;
+    // console.log(++errorCount)
     return display.removeChild(display.lastChild);
+    
   }
 
   // these are the valid character we are allowing to type
@@ -68,6 +73,8 @@ const gameOver = () => {
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
   const timeTaken = (finishTime - startTime) / 1000;
+  const timeTakenInt = parseInt(timeTaken);
+  // console.log(timeTakenInt);
 
   // show result modal
   resultModal.innerHTML = "";
@@ -80,7 +87,7 @@ const gameOver = () => {
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
-    <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
+    <p>You took: <span class="bold">${timeTakenInt}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
