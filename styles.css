@@ -187,6 +187,28 @@ button {
 }
 
 
+/* blog style add  */
+.question{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.question div{
+  width: 700px;
+}
+.question h2{
+  color: #fff;
+  font-size: 25px;
+  margin-top: 20px;
+}
+.question p{
+  color: #fff;
+  font-size: 18px;
+}
+
+
+
 
 
 /* resposive */
